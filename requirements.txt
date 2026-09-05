@@ -4,3 +4,4 @@ ultralytics
 google-genai
 pillow
 python-multipart
+python-dotenv
