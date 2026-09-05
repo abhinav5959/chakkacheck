@@ -5,6 +5,7 @@ import time
 import traceback
 from typing import Optional, Literal, Any
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from starlette.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 from ultralytics import YOLO
@@ -26,7 +27,7 @@ app.add_middleware(
 )
 
 MODEL_PATH = "best.pt"
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "") or os.environ.get("GOOGLE_API_KEY", "")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY") or "AQ.Ab8RN6Jy0oUg3zr8D6N4xFEcN1OnnomvfdCg-mo-gwTWxYLhSw"
 
 try:
     yolo_model = YOLO(MODEL_PATH)
@@ -80,7 +81,7 @@ def evaluate_scene_with_gemini(
     """
     global client
     if client is None:
-        key = os.environ.get("GEMINI_API_KEY", "") or os.environ.get("GOOGLE_API_KEY", "")
+        key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY") or "AQ.Ab8RN6Jy0oUg3zr8D6N4xFEcN1OnnomvfdCg-mo-gwTWxYLhSw"
         if key:
             try:
                 client = genai.Client(api_key=key)
@@ -175,11 +176,11 @@ CRITICAL POSTURE (UNRESPONSIVE / DEAD) RULES:
         types.SafetySetting(category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH),
         types.SafetySetting(category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold=types.HarmBlockThreshold.BLOCK_ONLY_HIGH),
     ]
-    candidate_models = ["gemini-3.6-flash", "gemini-2.5-flash", "gemini-1.5-flash", "gemini-2.0-flash", "gemini-2.5-pro"]
+    candidate_models = ["gemini-2.5-flash-lite", "gemini-2.0-flash", "gemini-3.6-flash"]
 
     last_err = None
     for model_name in candidate_models:
-        for attempt in range(2):
+        for attempt in range(3):
             try:
                 response = client.models.generate_content(
                     model=model_name,
@@ -253,7 +254,8 @@ async def analyze_scene(file: UploadFile = File(...)):
         raise HTTPException(status_code=400, detail="Corrupted image file.")
 
     # 1. Run YOLO object detection
-    yolo_results = yolo_model(image, conf=0.10)[0]
+    raw_results = await run_in_threadpool(yolo_model, image, conf=0.10)
+    yolo_results = raw_results[0]
 
     yolo_jackfruit = False
     yolo_rabbit = False
@@ -284,6 +286,18 @@ async def analyze_scene(file: UploadFile = File(...)):
         try:
             img_w, img_h = image.size
             x1, y1, x2, y2 = best_rabbit_box
+            w = x2 - x1
+            h = y2 - y1
+            
+            # Add 10% clamped margin
+            margin_x = 0.10 * w
+            margin_y = 0.10 * h
+            
+            x1 -= margin_x
+            y1 -= margin_y
+            x2 += margin_x
+            y2 += margin_y
+            
             ix1 = max(0, min(int(x1), img_w - 1))
             iy1 = max(0, min(int(y1), img_h - 1))
             ix2 = max(ix1 + 1, min(int(x2), img_w))

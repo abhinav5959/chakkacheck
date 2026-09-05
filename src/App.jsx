@@ -93,6 +93,10 @@ function App() {
     setAnalysisError(null);
   };
 
+  // Backend API base URL — configured via environment variable for production (Render),
+  // falls back to relative path for local development (handled by Vite proxy).
+  const API_BASE = import.meta.env.VITE_API_URL || '';
+
   // Analyze Scene using the backend API
   const handleAnalyze = async () => {
     if (!selectedFile) return;
@@ -105,7 +109,7 @@ function App() {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const response = await fetch('http://localhost:8000/api/analyze', {
+      const response = await fetch(`${API_BASE}/api/analyze`, {
         method: 'POST',
         body: formData,
         // When using fetch with FormData, do NOT manually set the Content-Type header
