@@ -1,0 +1,109 @@
+:root {
+  /* Warm Storybook Kerala Palette (Light Theme) */
+  --color-bg-page: #FAF7EF;
+  --color-nav-bg: #FCF9F2;
+  --color-cream-card: #FDFBF5;
+  --color-cream-border: #E8E0D0;
+  
+  --color-kerala-green: #2E6337;
+  --color-kerala-dark: #1E3A24;
+  --color-kerala-light-green: #468652;
+  --color-jackfruit-yellow: #E5A825;
+  --color-warm-wood: #6D503C;
+  --color-wood-border: #4A3423;
+  
+  --color-text-main: #213326;
+  --color-text-muted: #586B5E;
+  --color-text-light: #7E9184;
+
+  /* 4 Feature Card Pastel Palettes */
+  --card-peach-bg: #FEE8E5;
+  --card-peach-border: #F4CECB;
+  --card-peach-text: #632C28;
+
+  --card-blue-bg: #E1F2FB;
+  --card-blue-border: #C8E3F4;
+  --card-blue-text: #1C465F;
+
+  --card-gold-bg: #FEF5D8;
+  --card-gold-border: #F4E4AD;
+  --card-gold-text: #5C4314;
+
+  --card-mint-bg: #E4F5E7;
+  --card-mint-border: #C6E6CC;
+  --card-mint-text: #1D4C28;
+
+  --card-shadow: 0 10px 24px -4px rgba(33, 51, 38, 0.08);
+  --card-shadow-hover: 0 14px 32px -4px rgba(33, 51, 38, 0.14);
+
+  --font-playful: 'Fredoka', system-ui, -apple-system, sans-serif;
+  --font-ml-serif: 'Noto Serif Malayalam', Georgia, serif;
+  --font-ml-sans: 'Anek Malayalam', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+[data-theme='dark'] {
+  /* Warm Storybook Kerala Palette (Dark / Evening Theme) */
+  --color-bg-page: #0E1712;
+  --color-nav-bg: #15221B;
+  --color-cream-card: #18281F;
+  --color-cream-border: #2C4234;
+  
+  --color-kerala-green: #59A569;
+  --color-kerala-dark: #376C44;
+  --color-kerala-light-green: #79C289;
+  --color-jackfruit-yellow: #E8B648;
+  --color-warm-wood: #553E2E;
+  --color-wood-border: #3A281B;
+  
+  --color-text-main: #F4F6F0;
+  --color-text-muted: #B8C7BC;
+  --color-text-light: #8BA090;
+
+  /* 4 Feature Card Pastel Palettes in Dark Mode */
+  --card-peach-bg: #352120;
+  --card-peach-border: #52312F;
+  --card-peach-text: #FFD2CF;
+
+  --card-blue-bg: #1B2F3D;
+  --card-blue-border: #294559;
+  --card-blue-text: #CDE8F8;
+
+  --card-gold-bg: #362D1B;
+  --card-gold-border: #524426;
+  --card-gold-text: #FFE9B3;
+
+  --card-mint-bg: #1E3324;
+  --card-mint-border: #2F4D37;
+  --card-mint-text: #D0F2D6;
+
+  --card-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.45);
+  --card-shadow-hover: 0 14px 32px -4px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-page);
+  color: var(--color-text-main);
+  font-family: var(--font-playful);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background-color 0.6s ease, color 0.4s ease;
+  position: relative;
+  overflow-x: hidden;
+}

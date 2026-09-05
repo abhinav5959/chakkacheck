@@ -49,3 +49,17 @@ To achieve a **TRUE** verdict (100% match score), an incident must satisfy four 
 ### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
+npm install
+```
+
+### 2. Start Backend API
+```bash
+python main.py
+# or from chakkacheck-Backend/
+uvicorn main:app --reload --port 8000
+```
+
+### 3. Start Frontend App
+```bash
+npm run dev
+```

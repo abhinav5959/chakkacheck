@@ -1,0 +1,395 @@
+/* =========================================================
+   ChakkaCheck Navbar - Storybook Kerala Illustrated Style
+   ========================================================= */
+
+.navbar-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 16px auto 0;
+  padding: 0 20px;
+  position: sticky;
+  top: 14px;
+  z-index: 1000;
+}
+
+.navbar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-nav-bg, #FCF9F2);
+  border: 1.5px solid var(--color-cream-border, #E8E0D0);
+  border-radius: 20px;
+  padding: 10px 20px;
+  box-shadow: 
+    0 8px 24px -4px rgba(33, 51, 38, 0.09),
+    0 2px 6px -1px rgba(33, 51, 38, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+[data-theme='dark'] .navbar {
+  background: var(--color-nav-bg, #15221B);
+  border-color: var(--color-cream-border, #2C4234);
+  box-shadow: 
+    0 8px 24px -4px rgba(0, 0, 0, 0.45),
+    0 2px 6px -1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ----------------- Brand Section ----------------- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #F3EEDB;
+  border: 1.5px solid #DFCFA8;
+  box-shadow: 0 2px 5px rgba(33, 51, 38, 0.06);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+[data-theme='dark'] .brand-icon-wrapper {
+  background: #1F3327;
+  border-color: #385A43;
+}
+
+.navbar-brand:hover .brand-icon-wrapper {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.jackfruit-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.brand-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-playful);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-kerala-green);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.brand-name-accent {
+  color: #3B7E48;
+}
+
+[data-theme='dark'] .brand-name {
+  color: #79C289;
+}
+
+[data-theme='dark'] .brand-name-accent {
+  color: #E8B648;
+}
+
+.brand-subtitle {
+  font-family: var(--font-playful);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* ----------------- Navigation Links ----------------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  font-family: var(--font-playful);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-item-icon {
+  width: 17px;
+  height: 17px;
+  opacity: 0.85;
+}
+
+.nav-link:hover {
+  background: rgba(46, 99, 55, 0.08);
+  color: var(--color-kerala-green);
+}
+
+/* Active Pill Style (like "Home" green button in reference) */
+.nav-link.active-pill {
+  background: var(--color-kerala-green);
+  color: #FFFFFF !important;
+  box-shadow: 0 3px 10px rgba(46, 99, 55, 0.25);
+}
+
+.nav-link.active-pill .nav-item-icon {
+  opacity: 1;
+}
+
+[data-theme='dark'] .nav-link {
+  color: #C8D8CC;
+}
+
+[data-theme='dark'] .nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+[data-theme='dark'] .nav-link.active-pill {
+  background: #376C44;
+  color: #FFFFFF !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------- Right Actions Group ----------------- */
+.navbar-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Kerala Pill Badge */
+.kerala-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2E6337;
+  color: #FFFFFF;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-family: var(--font-playful);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(46, 99, 55, 0.2);
+  user-select: none;
+}
+
+[data-theme='dark'] .kerala-pill-badge {
+  background: #24482C;
+  color: #E2F5E6;
+}
+
+.kerala-badge-leaf {
+  font-size: 0.95rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(46, 99, 55, 0.08);
+  border: 1.5px solid rgba(46, 99, 55, 0.16);
+  color: var(--color-text-main);
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: var(--font-playful);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(46, 99, 55, 0.14);
+  transform: translateY(-1px);
+}
+
+[data-theme='dark'] .theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--color-text-main);
+}
+
+.theme-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.sun-icon {
+  color: #E5A825;
+}
+
+.moon-icon {
+  color: #E8B648;
+}
+
+/* ----------------- Mobile Controls ----------------- */
+.mobile-controls {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-theme-btn {
+  padding: 8px;
+  width: 38px;
+  height: 38px;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(46, 99, 55, 0.07);
+  border: 1px solid rgba(46, 99, 55, 0.15);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+}
+
+[data-theme='dark'] .hamburger-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.hamburger-bar {
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-text-main);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn.open .top-bar {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-btn.open .middle-bar {
+  opacity: 0;
+}
+
+.hamburger-btn.open .bottom-bar {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ----------------- Mobile Collapsible Menu ----------------- */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-controls {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--color-nav-bg, #FCF9F2);
+    border: 1.5px solid var(--color-cream-border, #E8E0D0);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(33, 51, 38, 0.12);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-theme='dark'] .mobile-menu {
+    background: var(--color-nav-bg, #15221B);
+    border-color: var(--color-cream-border, #2C4234);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-menu.mobile-menu-open {
+    max-height: 320px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+    font-family: var(--font-playful);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    border-radius: 10px;
+  }
+
+  .mobile-nav-link.active {
+    background: var(--color-kerala-green);
+    color: #FFFFFF;
+  }
+
+  .mobile-kerala-badge {
+    margin-top: 6px;
+    padding: 8px 12px;
+    background: rgba(46, 99, 55, 0.08);
+    border-radius: 8px;
+    font-family: var(--font-playful);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-kerala-green);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  [data-theme='dark'] .mobile-kerala-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: #79C289;
+  }
+}

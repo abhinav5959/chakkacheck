@@ -1,0 +1,1278 @@
+/* =========================================================
+   ChakkaCheck App Styles - Illustrated Kerala Storybook Aesthetic
+   ========================================================= */
+
+.app-layout {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.app-content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   1. HERO SECTION & POSTER LAYOUT
+   ========================================================= */
+
+.hero-section {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 3-Column Poster Layout: Left Text | Center Upload | Right Visual Scene */
+.hero-poster-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  min-height: 460px;
+}
+
+/* ----------------- Left Column: Heading & Text ----------------- */
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 5;
+}
+
+/* Comic-style "THUD!" badge */
+.comic-thud-badge {
+  display: inline-block;
+  background: #E5A825;
+  color: #213326;
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 2px solid #213326;
+  transform: rotate(-8deg);
+  box-shadow: 2px 3px 0 #213326;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  user-select: none;
+  animation: gentle-wobble 4s ease-in-out infinite;
+}
+
+@keyframes gentle-wobble {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50% { transform: rotate(-6deg) scale(1.03); }
+}
+
+[data-theme='dark'] .comic-thud-badge {
+  background: #F0BC42;
+  color: #122017;
+  border-color: #0E1712;
+  box-shadow: 2px 3px 0 #000;
+}
+
+/* Malayalam Proverb Heading */
+.hero-title-ml {
+  font-family: var(--font-ml-serif);
+  font-size: clamp(2.6rem, 3.8vw, 3.8rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--color-kerala-green);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 8px rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+[data-theme='dark'] .hero-title-ml {
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(89, 165, 105, 0.3);
+}
+
+/* English Transliteration */
+.hero-title-en {
+  font-family: var(--font-playful);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+  line-height: 1.25;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] .hero-title-en {
+  color: #E8B648;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Concise Storybook Explanation */
+.hero-description {
+  font-family: var(--font-playful);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-text-main);
+  max-width: 380px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .hero-description {
+  color: #DDE8DF;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+/* ----------------- Scenic Wooden Signs & Props ----------------- */
+.wooden-sign-post-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+.left-sign-wrapper {
+  margin-top: 8px;
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+
+.left-sign-wrapper:hover {
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.right-sign-wrapper {
+  transform: rotate(4deg);
+  transition: transform 0.3s ease;
+  align-self: flex-end;
+  margin-right: -10px;
+}
+
+.right-sign-wrapper:hover {
+  transform: rotate(2deg) scale(1.02);
+}
+
+.wooden-board {
+  background: linear-gradient(135deg, #785840 0%, #5C412E 100%);
+  color: #FDFBF5;
+  border: 2.5px solid #3E291B;
+  border-radius: 8px;
+  padding: 10px 18px;
+  text-align: center;
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    0 6px 14px rgba(33, 51, 38, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme='dark'] .wooden-board {
+  background: linear-gradient(135deg, #5C412E 0%, #3E291B 100%);
+  border-color: #24170E;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.wooden-post {
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(to right, #4A3423, #5C412E, #3E291B);
+  border: 1.5px solid #24170E;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-top: -1px;
+}
+
+/* Scenic Stone Prop */
+.scenic-stone-prop {
+  margin-top: 14px;
+  background: linear-gradient(135deg, #9FA49A 0%, #7E8478 100%);
+  color: #1F2E23;
+  border: 2px solid #5A6054;
+  border-radius: 20px 30px 18px 25px;
+  padding: 6px 14px;
+  font-family: var(--font-playful);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+[data-theme='dark'] .scenic-stone-prop {
+  background: linear-gradient(135deg, #4F554B 0%, #363C32 100%);
+  color: #E2E8DE;
+  border-color: #242921;
+}
+
+/* ----------------- Center Column: Upload Card ----------------- */
+.hero-upload-col {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 6;
+}
+
+.upload-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-cream-card, #FDFBF5);
+  border: 1.5px solid var(--color-cream-border, #E8E0D0);
+  border-radius: 22px;
+  padding: 22px 20px;
+  box-shadow: 
+    0 12px 32px -4px rgba(33, 51, 38, 0.1),
+    0 4px 12px -2px rgba(33, 51, 38, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .upload-card {
+  background: var(--color-cream-card, #18281F);
+  border-color: var(--color-cream-border, #2C4234);
+  box-shadow: 
+    0 12px 32px -4px rgba(0, 0, 0, 0.5),
+    0 4px 12px -2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.upload-card-title {
+  font-family: var(--font-playful);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* Dropzone */
+.dropzone {
+  border: 2px dashed #D5CCC0;
+  border-radius: 16px;
+  padding: 24px 14px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.65);
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme='dark'] .dropzone {
+  border-color: #385240;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dropzone:hover,
+.dropzone.drag-active {
+  border-color: var(--color-kerala-green);
+  background: rgba(46, 99, 55, 0.06);
+}
+
+[data-theme='dark'] .dropzone:hover,
+[data-theme='dark'] .dropzone.drag-active {
+  border-color: var(--color-jackfruit-yellow);
+  background: rgba(232, 182, 72, 0.08);
+}
+
+.dropzone-file-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.dropzone-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(46, 99, 55, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: var(--color-kerala-green);
+}
+
+[data-theme='dark'] .dropzone-icon-box {
+  background: rgba(255, 255, 255, 0.08);
+  color: #79C289;
+}
+
+.dropzone-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.dropzone-main-text {
+  font-family: var(--font-playful);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 2px;
+}
+
+.dropzone-or-text {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin: 4px 0 10px;
+}
+
+/* Green "Choose an Image" Button */
+.choose-btn {
+  background: var(--color-kerala-green);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 11px;
+  font-family: var(--font-playful);
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(46, 99, 55, 0.25);
+  pointer-events: none; /* File input handles the click */
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .choose-btn {
+  background: #376C44;
+}
+
+.choose-btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.supported-formats-text {
+  font-size: 0.74rem;
+  color: var(--color-text-light);
+  margin-top: 10px;
+}
+
+/* Uploaded Image Preview */
+.preview-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid var(--color-cream-border);
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-cream-border);
+}
+
+[data-theme='dark'] .preview-info-row {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.file-name-text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+}
+
+.preview-remove-btn {
+  background: transparent;
+  color: #C0392B;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* "Analyze with ChakkaCheck" Button */
+.analyze-action-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: none;
+  background: var(--color-kerala-green);
+  color: #FFFFFF;
+  font-family: var(--font-playful);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(46, 99, 55, 0.25);
+  transition: all 0.25s ease;
+}
+
+.analyze-action-btn:hover:not(:disabled) {
+  background: var(--color-kerala-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 99, 55, 0.35);
+}
+
+.analyze-action-btn:disabled {
+  background: #D5CCC0;
+  color: #7D7569;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .analyze-action-btn {
+  background: #E8B648;
+  color: #122017;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .analyze-action-btn:hover:not(:disabled) {
+  background: #F2C76A;
+}
+
+[data-theme='dark'] .analyze-action-btn:disabled {
+  background: #2C4234;
+  color: #5D7A66;
+}
+
+/* ----------------- Analysis Error Banner ----------------- */
+.analysis-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #FDF2F0;
+  border: 1.5px solid #F5C6CB;
+  color: #721C24;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  font-family: var(--font-playful);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+[data-theme='dark'] .analysis-error-banner {
+  background: #3B1E20;
+  border-color: #632C28;
+  color: #FFD2CF;
+}
+
+.error-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ----------------- Analyzing Loading State ----------------- */
+.analyzing-status-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px 6px;
+  text-align: center;
+}
+
+.analyzing-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3.5px solid rgba(46, 99, 55, 0.15);
+  border-top-color: var(--color-kerala-green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 10px;
+}
+
+[data-theme='dark'] .analyzing-spinner {
+  border-color: rgba(232, 182, 72, 0.2);
+  border-top-color: var(--color-jackfruit-yellow);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.analyzing-main-msg {
+  font-family: var(--font-playful);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 2px;
+}
+
+.analyzing-sub-msg {
+  font-family: var(--font-playful);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* ----------------- Analysis Result Panel ----------------- */
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  animation: fadeInResult 0.4s ease-out;
+}
+
+@keyframes fadeInResult {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Verdict Box */
+.result-verdict-box {
+  background: linear-gradient(135deg, #F9F5EC 0%, #F3ECDC 100%);
+  border: 1.5px solid var(--color-cream-border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+[data-theme='dark'] .result-verdict-box {
+  background: linear-gradient(135deg, #1C3024 0%, #14221A 100%);
+  border-color: #2F4D37;
+}
+
+.verdict-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.verdict-label {
+  font-family: var(--font-playful);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.score-badge {
+  background: var(--color-kerala-green);
+  color: #FFFFFF;
+  font-family: var(--font-playful);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(46, 99, 55, 0.2);
+}
+
+[data-theme='dark'] .score-badge {
+  background: var(--color-jackfruit-yellow);
+  color: #122017;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.verdict-text {
+  font-family: var(--font-playful);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-kerala-green);
+  line-height: 1.25;
+}
+
+[data-theme='dark'] .verdict-text {
+  color: #79C289;
+}
+
+/* Detection Status Grid */
+.detection-status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.status-item {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--color-cream-border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+[data-theme='dark'] .status-item {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.status-label {
+  font-family: var(--font-playful);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.status-val {
+  font-family: var(--font-playful);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.status-val.detected {
+  color: #2E6337;
+}
+
+[data-theme='dark'] .status-val.detected {
+  color: #79C289;
+}
+
+.status-val.not-detected {
+  color: #C0392B;
+}
+
+[data-theme='dark'] .status-val.not-detected {
+  color: #FF7675;
+}
+
+.status-val.neutral {
+  color: var(--color-text-main);
+}
+
+/* Result Callouts */
+.result-callout {
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.commentary-callout {
+  background: var(--card-gold-bg);
+  border: 1.5px solid var(--card-gold-border);
+}
+
+.forensic-callout {
+  background: var(--card-blue-bg);
+  border: 1.5px solid var(--card-blue-border);
+}
+
+.callout-heading {
+  font-family: var(--font-playful);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--color-text-main);
+}
+
+.callout-text {
+  font-family: var(--font-playful);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-text-main);
+  opacity: 0.92;
+}
+
+/* "Analyze Another Image" Button */
+.try-another-btn {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  border: 1.5px solid var(--color-kerala-green);
+  background: rgba(46, 99, 55, 0.08);
+  color: var(--color-kerala-green);
+  font-family: var(--font-playful);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.try-another-btn:hover {
+  background: var(--color-kerala-green);
+  color: #FFFFFF;
+}
+
+[data-theme='dark'] .try-another-btn {
+  border-color: var(--color-jackfruit-yellow);
+  background: rgba(232, 182, 72, 0.1);
+  color: var(--color-jackfruit-yellow);
+}
+
+[data-theme='dark'] .try-another-btn:hover {
+  background: var(--color-jackfruit-yellow);
+  color: #122017;
+}
+
+.try-another-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ----------------- Right Column: Scene Props & Speech Bubble ----------------- */
+.hero-scene-props-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 400px;
+  padding: 10px 0 0;
+  position: relative;
+  z-index: 4;
+}
+
+/* Comic Speech Bubble pointing towards tree / rabbit */
+.comic-speech-bubble {
+  background: #FFFFFF;
+  border: 2px solid #213326;
+  border-radius: 20px;
+  padding: 10px 16px;
+  text-align: center;
+  box-shadow: 2px 3px 0 #213326;
+  position: relative;
+  user-select: none;
+  animation: float-bubble 4s ease-in-out infinite;
+}
+
+@keyframes float-bubble {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+[data-theme='dark'] .comic-speech-bubble {
+  background: #18281F;
+  border-color: #E8B648;
+  box-shadow: 2px 3px 0 #000;
+}
+
+.bubble-text {
+  font-family: var(--font-playful);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #213326;
+}
+
+[data-theme='dark'] .bubble-text {
+  color: #F4F6F0;
+}
+
+.bubble-tail {
+  position: absolute;
+  bottom: -8px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  background: #FFFFFF;
+  border-right: 2px solid #213326;
+  border-bottom: 2px solid #213326;
+  transform: rotate(45deg);
+}
+
+[data-theme='dark'] .bubble-tail {
+  background: #18281F;
+  border-right-color: #E8B648;
+  border-bottom-color: #E8B648;
+}
+
+/* =========================================================
+   2. 4 PASTEL FEATURE CARDS ROW
+   ========================================================= */
+
+.feature-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1140px;
+  margin: 32px auto 0;
+  z-index: 5;
+}
+
+.feature-card {
+  border-radius: 18px;
+  padding: 18px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Distinct Pastel Palettes */
+.card-peach {
+  background: var(--card-peach-bg);
+  border: 1.5px solid var(--card-peach-border);
+  color: var(--card-peach-text);
+}
+
+.card-blue {
+  background: var(--card-blue-bg);
+  border: 1.5px solid var(--card-blue-border);
+  color: var(--card-blue-text);
+}
+
+.card-gold {
+  background: var(--card-gold-bg);
+  border: 1.5px solid var(--card-gold-border);
+  color: var(--card-gold-text);
+}
+
+.card-mint {
+  background: var(--card-mint-bg);
+  border: 1.5px solid var(--card-mint-border);
+  color: var(--card-mint-text);
+}
+
+.feature-icon-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.card-svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature-title {
+  font-family: var(--font-playful);
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.feature-subtitle {
+  font-family: var(--font-playful);
+  font-size: 0.82rem;
+  font-weight: 500;
+  opacity: 0.85;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   3. PROVERB QUOTE CARD / BANNER
+   ========================================================= */
+
+.proverb-quote-banner {
+  width: 100%;
+  max-width: 980px;
+  margin: 24px auto 0;
+  background: var(--color-cream-card, #FDFBF5);
+  border: 1.5px solid var(--color-cream-border, #E8E0D0);
+  border-radius: 18px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 6px 18px rgba(33, 51, 38, 0.06);
+  z-index: 5;
+}
+
+[data-theme='dark'] .proverb-quote-banner {
+  background: var(--color-cream-card, #18281F);
+  border-color: var(--color-cream-border, #2C4234);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.quote-leaf-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.quote-body-text {
+  font-family: var(--font-playful);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-kerala-green);
+  line-height: 1.4;
+  flex: 1;
+}
+
+[data-theme='dark'] .quote-body-text {
+  color: #79C289;
+}
+
+.quote-author-tag {
+  font-family: var(--font-playful);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* =========================================================
+   4. STORYBOOK SECTIONS (FUN FACTS & ABOUT)
+   ========================================================= */
+
+.storybook-section {
+  width: 100%;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 5;
+}
+
+.section-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-family: var(--font-playful);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-kerala-green);
+  margin-bottom: 8px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] .section-title {
+  color: #79C289;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.section-subtitle {
+  font-family: var(--font-playful);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Fun Facts Grid */
+.fun-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.fact-card {
+  border-radius: 18px;
+  padding: 20px 18px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.fact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.fact-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.fact-emoji {
+  font-size: 1.4rem;
+}
+
+.fact-title {
+  font-family: var(--font-playful);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.fact-text {
+  font-family: var(--font-playful);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* About / Why ChakkaCheck Card */
+.about-storybook-card {
+  background: var(--color-cream-card, #FDFBF5);
+  border: 1.5px solid var(--color-cream-border, #E8E0D0);
+  border-radius: 24px;
+  padding: 44px 32px;
+  max-width: 860px;
+  margin: 0 auto;
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme='dark'] .about-storybook-card {
+  background: var(--color-cream-card, #18281F);
+  border-color: var(--color-cream-border, #2C4234);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.5);
+}
+
+.malayalam-proverb-highlight {
+  font-family: var(--font-ml-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-kerala-green);
+  margin-top: 6px;
+}
+
+[data-theme='dark'] .malayalam-proverb-highlight {
+  color: #E8B648;
+}
+
+.about-text-content p {
+  font-family: var(--font-playful);
+  font-size: 1.08rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.about-italic-quote {
+  font-style: italic;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: var(--color-kerala-green) !important;
+  margin: 20px 0 !important;
+}
+
+[data-theme='dark'] .about-italic-quote {
+  color: #79C289 !important;
+}
+
+.tech-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.tech-pill {
+  background: rgba(46, 99, 55, 0.08);
+  border: 1px solid rgba(46, 99, 55, 0.16);
+  color: var(--color-kerala-green);
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-family: var(--font-playful);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .tech-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #E8B648;
+}
+
+/* =========================================================
+   5. STORYBOOK FOOTER
+   ========================================================= */
+
+.storybook-footer {
+  width: 100%;
+  margin-top: auto;
+  padding: 30px 20px 40px;
+  position: relative;
+  z-index: 5;
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  background: var(--color-cream-card, #FDFBF5);
+  border: 1.5px solid var(--color-cream-border, #E8E0D0);
+  border-radius: 18px;
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(33, 51, 38, 0.06);
+}
+
+[data-theme='dark'] .footer-inner {
+  background: var(--color-cream-card, #18281F);
+  border-color: var(--color-cream-border, #2C4234);
+}
+
+.footer-brand {
+  font-family: var(--font-playful);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-kerala-green);
+  margin-right: 8px;
+}
+
+[data-theme='dark'] .footer-brand {
+  color: #79C289;
+}
+
+.footer-tagline {
+  font-family: var(--font-playful);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.footer-copy {
+  font-family: var(--font-playful);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* =========================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .hero-poster-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .hero-scene-props-col {
+    grid-column: span 2;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  .feature-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fun-facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-poster-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-text-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .comic-thud-badge {
+    margin-bottom: 8px;
+  }
+
+  .hero-title-ml {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-scene-props-col {
+    grid-column: span 1;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .proverb-quote-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .fun-facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 16px 12px 36px;
+  }
+
+  .upload-card {
+    padding: 18px 14px;
+  }
+
+  .feature-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-storybook-card {
+    padding: 28px 18px;
+  }
+}

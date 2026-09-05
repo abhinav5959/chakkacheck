@@ -1,0 +1,106 @@
+/* =========================================================
+   ChakkaCheck Background Video Layer
+   Storybook Kerala Illustration Video - Crisp & Fully Visible
+   ========================================================= */
+
+.bg-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--color-bg-page, #FAF7EF);
+  transition: background-color 0.8s ease;
+}
+
+/* Individual Video Elements */
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+/* Active Theme Video Display */
+.bg-video.video-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.bg-video.video-inactive {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+}
+
+/* 
+ * Minimal Ambient Overlay:
+ * The illustrated video itself is the backdrop. We do NOT blur or darken heavily!
+ */
+.bg-video-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: background 0.8s ease;
+}
+
+/* Light Theme: Clean, ultra-subtle ambient warmth */
+:root .bg-video-scrim,
+[data-theme='light'] .bg-video-scrim {
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(250, 247, 239, 0.12) 70%,
+    rgba(240, 233, 218, 0.25) 100%
+  );
+}
+
+/* Dark Theme: Soft evening atmospheric tint */
+[data-theme='dark'] .bg-video-scrim {
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(14, 23, 18, 0.15) 0%,
+    rgba(10, 18, 14, 0.35) 70%,
+    rgba(6, 12, 9, 0.55) 100%
+  );
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bg-video {
+    width: 100%;
+    height: 100%;
+  }
+
+  :root .bg-video-scrim,
+  [data-theme='light'] .bg-video-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(250, 247, 239, 0.1) 0%,
+      rgba(250, 247, 239, 0.3) 100%
+    );
+  }
+
+  [data-theme='dark'] .bg-video-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(14, 23, 18, 0.2) 0%,
+      rgba(10, 18, 14, 0.5) 100%
+    );
+  }
+}
