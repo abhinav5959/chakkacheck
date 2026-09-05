@@ -6,6 +6,8 @@ import traceback
 from typing import Optional, Literal, Any
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from starlette.concurrency import run_in_threadpool
+from fastapi.staticfiles import StaticFiles
+import os
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 from ultralytics import YOLO
@@ -237,7 +239,7 @@ CRITICAL POSTURE (UNRESPONSIVE / DEAD) RULES:
     }
 
 
-@app.get("/")
+@app.get("/api/health")
 def health_check():
     return {"status": "ok", "project": "ChakkaCheck", "version": "1.5.0"}
 
@@ -429,3 +431,9 @@ async def analyze_scene(file: UploadFile = File(...)):
         "commentary": commentary,
         "forensic_notes": notes
     }
+
+# Mount the static frontend
+# Note: This must be defined LAST so it acts as a catch-all route, 
+# ensuring it doesn't override the /api/ routes above.
+if os.path.isdir("dist"):
+    app.mount("/", StaticFiles(directory="dist", html=True), name="static")
