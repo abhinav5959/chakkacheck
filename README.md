@@ -38,28 +38,50 @@ To achieve a **TRUE** verdict (100% match score), an incident must satisfy four 
 
 ## Technical Architecture
 - **Object Detection Layer:** Custom YOLOv8s weights (`best.pt`) detecting jackfruits and rabbits at low confidence thresholds to handle diffusion-smoothed AI renders.
-- **Multimodal Veterinary Assessor:** Powered by `gemini-3.6-flash` using clinical recumbency markers (lateral recumbency, flaccid tone, closed eyes) without triggering gore/harm safety filters.
+- **Multimodal Veterinary Assessor:** Powered by `gemini-2.5-flash-lite` (with fallbacks) using clinical recumbency markers (lateral recumbency, flaccid tone, closed eyes) without triggering gore/harm safety filters. Includes a 3-attempt exponential backoff for rate limit protection.
 - **Taxonomic Classifier:** Distinguishes agouti/brown wild hares (*Lepus nigricollis*) from albino/fancy pet breeds.
-- **Backend Service:** FastAPI with full CORS support and built-in exponential backoff for rate-limit protection.
+- **Backend Service:** FastAPI with full CORS support. YOLO inference is wrapped in `run_in_threadpool` for non-blocking ASGI event loop execution.
 
 ---
 
-## Installation & Setup
+## Local Development
 
-### 1. Install Dependencies
+### 1. Environment Setup
+1. Create a `.env` in the root for the backend:
+   ```env
+   GEMINI_API_KEY=your_key_here
+   ```
+2. Copy `.env.example` to `.env.local` for the frontend (optional, defaults to localhost proxy):
+   ```env
+   VITE_API_URL=http://localhost:8000
+   ```
+
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 npm install
 ```
 
-### 2. Start Backend API
+### 3. Start Services
+**Terminal 1 (Backend):**
 ```bash
-python main.py
-# or from chakkacheck-Backend/
 uvicorn main:app --reload --port 8000
 ```
 
-### 3. Start Frontend App
+**Terminal 2 (Frontend):**
 ```bash
 npm run dev
 ```
+
+---
+
+## Production Deployment
+
+### Backend (Render)
+Designed for Render's free tier via the included `render.yaml` blueprint.
+- Automatically installs a lightweight CPU-only PyTorch build to avoid OOM crashes (512MB RAM limit).
+- Requires `GEMINI_API_KEY` set in the Render environment dashboard.
+
+### Frontend (Vercel)
+Deployed as a static Vite application on Vercel.
+- Requires `VITE_API_URL` set in Vercel to point to your live Render backend URL (e.g., `https://chakkacheck-api.onrender.com`).
