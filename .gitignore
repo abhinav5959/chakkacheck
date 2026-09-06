@@ -31,3 +31,28 @@ __pycache__/
 .venv
 venv/
 ENV/
+
+# Environment & secrets
+.env
+.env.local
+.env.production
+
+# ML model weights (too large for git)
+*.pt
+*.pth
+*.onnx
+
+# Debug / diagnostic artifacts
+BACKEND_DIAGNOSTIC_REPORT.md
+
+# Test scripts
+test_run.py
+
+# Lock files (install fresh with npm install)
+package-lock.json
+
+# Linter config (personal tooling)
+.oxlintrc.json
+
+# Screenshots
+screenshots/
