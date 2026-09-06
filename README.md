@@ -75,13 +75,22 @@ npm run dev
 
 ---
 
-## Production Deployment
+## Public Demo / Hackathon Presentation (No Cloud Hosting)
 
-### Backend (Render)
-Designed for Render's free tier via the included `render.yaml` blueprint.
-- Automatically installs a lightweight CPU-only PyTorch build to avoid OOM crashes (512MB RAM limit).
-- Requires `GEMINI_API_KEY` set in the Render environment dashboard.
+Because of the heavy Machine Learning pipeline (PyTorch + YOLOv8) which demands significant RAM, this project exceeds the constraints of free-tier cloud platforms (like Render's 512MB limit) and often struggles with stable tunneling via proxies. 
 
-### Frontend (Vercel)
-Deployed as a static Vite application on Vercel.
-- Requires `VITE_API_URL` set in Vercel to point to your live Render backend URL (e.g., `https://chakkacheck-api.onrender.com`).
+**For hackathon presentations, run the app locally and tunnel it using SSH:**
+
+1. Build the unified frontend + backend:
+```bash
+npm run build
+```
+2. Start the unified server on port `8000`:
+```bash
+uvicorn main:app --port 8000
+```
+3. Expose it securely to the internet using Pinggy (no installation required!):
+```bash
+ssh -p 443 -R0:localhost:8000 a.pinggy.io
+```
+This will instantly generate a public `https://...pinggy.link` URL that you can share with judges for live testing, running off your laptop's hardware!
